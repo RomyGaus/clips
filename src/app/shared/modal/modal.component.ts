@@ -8,18 +8,13 @@ import { ModalService } from 'src/app/service/modal.service';
   // providers: [ModalService]
 })
 export class ModalComponent implements OnInit {
-  @Input() modalID = ''
+  @Input() modalID = '';
 
-  constructor(public modal: ModalService) {
+  constructor(public modal: ModalService) {}
 
-  }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   closeModal() {
-    this.modal.toggleModal(this.modalID)
+    this.modal.toggleModal(this.modalID);
   }
-
 }
