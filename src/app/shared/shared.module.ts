@@ -9,30 +9,25 @@ import { provideEnvironmentNgxMask, NgxMaskDirective } from 'ngx-mask';
 import { AlertComponent } from './alert/alert.component';
 // import { ModalService } from '../service/modal.service';
 
-
 @NgModule({
   declarations: [
     ModalComponent,
     TabsContainerComponent,
     TabComponent,
     InputComponent,
-    AlertComponent
+    AlertComponent,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    NgxMaskDirective
-  ],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective],
   exports: [
     ModalComponent,
     TabsContainerComponent,
     TabComponent,
     InputComponent,
-    AlertComponent
+    AlertComponent,
   ],
   providers: [
-    provideEnvironmentNgxMask()
+    provideEnvironmentNgxMask(),
     // ModalService
-  ]
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
