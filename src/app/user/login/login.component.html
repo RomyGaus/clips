@@ -1,5 +1,9 @@
- <!-- Login Form -->
- <form #loginForm="ngForm" (ngSubmit)="login()">
+<app-alert *ngIf="showAlert" [color]="alertColor">
+  {{ alertMsg }}
+</app-alert>
+
+<!-- Login Form -->
+<form #loginForm="ngForm" (ngSubmit)="login()">
   <!-- Email -->
   <div class="mb-3">
     <label class="inline-block mb-2">Email</label>
@@ -13,7 +17,12 @@
       required
       pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
     />
-    <p *ngIf="email.errors && email.touched && email.dirty" class="text-red-400">Email is invalid</p>
+    <p
+      *ngIf="email.errors && email.touched && email.dirty"
+      class="text-red-400"
+    >
+      Email is invalid
+    </p>
   </div>
   <!-- Password -->
   <div class="mb-3">
@@ -27,12 +36,17 @@
       placeholder="Password"
       required
     />
-    <p *ngIf="password.errors && password.touched && password.dirty" class="text-red-400">Password is invalid</p>
+    <p
+      *ngIf="password.errors && password.touched && password.dirty"
+      class="text-red-400"
+    >
+      Password is invalid
+    </p>
   </div>
   <button
     type="submit"
     class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400"
-    [disabled]="loginForm.invalid"
+    [disabled]="loginForm.invalid || inSubmission"
   >
     Submit
   </button>
