@@ -49,7 +49,7 @@
               *ngFor="let screenshot of screenshots"
               class="border-8 cursor-pointer border-green-400"
             >
-              <img [src]="screenshot" />
+              <img [src]="screenshot | safeURL" />
             </div>
           </div>
 
